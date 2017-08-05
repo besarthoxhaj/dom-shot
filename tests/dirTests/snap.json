@@ -1,7 +1,8 @@
 {
   "01": {
     "mess": "Data entered",
-    "numId": "01"
+    "numId": "01",
+    "rect": { "w": 900, "y": 150 }
   },
   "02": {
     "mess": "iFrame open",

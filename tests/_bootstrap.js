@@ -11,13 +11,18 @@ const fs = require('fs-extra');
 module.exports = {
   setUp: () => {
     test('BOOTSTRAP - SETUP', t => {
-      t.end();
+      try {
+        fs.removeSync(`${__dirname}/dirTests/imgs`);
+        t.end();
+      } catch(err) {
+        t.end(err);
+      }
     });
   },
   tearDown: () => {
     test('BOOTSTRAP - TEAR DOWN', t => {
       try {
-        fs.removeSync(`${__dirname}/dirTests/imgs`);
+        // fs.removeSync(`${__dirname}/dirTests/imgs`);
         t.end();
       } catch(err) {
         t.end(err);
