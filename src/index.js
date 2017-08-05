@@ -69,14 +69,31 @@ module.exports = async function({
     await Page.navigate({url:`data:text/html,${htmlFile}`});
     await Page.loadEventFired();
 
-    await Input.synthesizeScrollGesture({
-      x: 0,
-      y: 0,
-      xDistance: -(positionX),
-      yDistance: -(positionY),
-    });
+    // avoid running the scroll
+    // if not needed
+    if(positionY !== 0) {
+      await Input.synthesizeScrollGesture({
+        x: 0,
+        y: 0,
+        xDistance: -(positionX),
+        yDistance: -(positionY),
+      });
+    }
 
     const image = await Page.captureScreenshot();
+
+    // if a scroll event was used run
+    // the opposite to avoid the page
+    // remaining in that state
+    if(positionY !== 0) {
+      await Input.synthesizeScrollGesture({
+        x: 0,
+        y: 0,
+        xDistance: (positionX),
+        yDistance: (positionY),
+      });
+    }
+
     fs.writeFileSync(
       outputDir + '/' + numId + '.png',
       image.data,
