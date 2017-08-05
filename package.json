@@ -1,6 +1,6 @@
 {
   "name": "@bes/shot",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple utility library which transforms HTML to PNG.",
   "main": "src/index.js",
   "scripts": {
