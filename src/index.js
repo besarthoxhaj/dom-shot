@@ -67,6 +67,7 @@ module.exports = async function({
 
     const htmlFile = fs.readFileSync(inputDir + '/' + numId + '.html', 'utf8');
     await Page.navigate({url:`data:text/html,${htmlFile}`});
+    await Page.reload();
     await Page.loadEventFired();
 
     // avoid running the scroll
