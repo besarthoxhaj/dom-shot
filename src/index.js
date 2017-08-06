@@ -53,8 +53,8 @@ module.exports = async function({
 
     const curr = jsonStore[numId];
 
-    const width = (curr['rect'] || {})['w'] || 800;
-    const height = (curr['rect'] || {})['h'] || 800;
+    const width = (curr['rect'] || {})['w'] || 1200;
+    const height = (curr['rect'] || {})['h'] || 840;
     const positionX = (curr['rect'] || {})['x'] || 0;
     const positionY = (curr['rect'] || {})['y'] || 0;
 
